@@ -5,23 +5,31 @@ export default class Compiler extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: ``,
+      input: localStorage.getItem('input')||``,
       output: ``,
-      language_id: 2,
+      language_id:localStorage.getItem('language_Id')|| 2,
       user_input: ``,
     };
   }
   input = (event) => {
+ 
     event.preventDefault();
+  
     this.setState({ input: event.target.value });
+    localStorage.setItem('input', event.target.value)
+ 
   };
   userInput = (event) => {
     event.preventDefault();
     this.setState({ user_input: event.target.value });
   };
   language = (event) => {
+   
     event.preventDefault();
+   
     this.setState({ language_id: event.target.value });
+    localStorage.setItem('language_Id',event.target.value)
+   
   };
 
   submit = async (e) => {
@@ -82,7 +90,7 @@ export default class Compiler extends Component {
 
       outputText.innerHTML = "";
 
-      outputText.innerHTML += `Results : ${output}\nExecution Time : ${jsonGetSolution.time} Secs\nMemory used : ${jsonGetSolution.memory} bytes`;
+      outputText.innerHTML += `Results :\n${output}\nExecution Time : ${jsonGetSolution.time} Secs\nMemory used : ${jsonGetSolution.memory} bytes`;
     } else if (jsonGetSolution.stderr) {
       const error = atob(jsonGetSolution.stderr);
 
@@ -98,6 +106,7 @@ export default class Compiler extends Component {
     }
   };
   render() {
+ 
     return (
       <>
         <div className="row container-fluid">
@@ -113,6 +122,7 @@ export default class Compiler extends Component {
               id="source"
               onChange={this.input}
               className=" source"
+              value={this.state.input}
             ></textarea>
 
             <button
@@ -127,7 +137,7 @@ export default class Compiler extends Component {
               <b className="heading">Language:</b>
             </label>
             <select
-              value={this.state.language}
+              value={this.state.language_id}
               onChange={this.language}
               id="tags"
               className="form-control form-inline mb-2 language"
