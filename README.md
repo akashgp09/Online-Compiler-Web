@@ -9,7 +9,7 @@
 # Fork and Clone this repository
 git clone https://github.com/akashgp09/Online-Compiler-Web.git
 
-cd Online-Compiler
+cd Online-Compiler-Web
 
 # Run the React app
 npm start
