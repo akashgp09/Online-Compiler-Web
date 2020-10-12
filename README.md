@@ -7,7 +7,7 @@
 
 ```
 # Fork and Clone this repository
-git clone https://github.com/akashgp09/Online-Compiler.git
+git clone https://github.com/akashgp09/Online-Compiler-Web.git
 
 cd Online-Compiler
 
