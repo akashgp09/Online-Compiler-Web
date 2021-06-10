@@ -142,10 +142,10 @@ export default class Compiler extends Component {
               id="tags"
               className="form-control form-inline mb-2 language"
             >
-              <option value="2">C++</option>
-              <option value="1">C</option>
-              <option value="4">Java</option>
-              <option value="10">Python</option>
+              <option value="54">C++</option>
+              <option value="50">C</option>
+              <option value="62">Java</option>
+              <option value="71">Python</option>
             </select>
           </div>
           <div className="col-5">
