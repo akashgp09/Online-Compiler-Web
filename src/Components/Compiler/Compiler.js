@@ -39,12 +39,12 @@ export default class Compiler extends Component {
     outputText.innerHTML = "";
     outputText.innerHTML += "Creating Submission ...\n";
     const response = await fetch(
-      "https://judge0-extra.p.rapidapi.com/submissions",
+      "https://judge0-ce.p.rapidapi.com/submissions",
       {
         method: "POST",
         headers: {
-          "x-rapidapi-host": "judge0-extra.p.rapidapi.com",
-          "x-rapidapi-key": "", // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
+          "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
+          "x-rapidapi-key": "", // Get yours for free at https://rapidapi.com/judge0-official/api/judge0-ce/
           "content-type": "application/json",
           accept: "application/json",
         },
@@ -71,13 +71,13 @@ export default class Compiler extends Component {
     ) {
       outputText.innerHTML = `Creating Submission ... \nSubmission Created ...\nChecking Submission Status\nstatus : ${jsonGetSolution.status.description}`;
       if (jsonResponse.token) {
-        let url = `https://judge0-extra.p.rapidapi.com/submissions/${jsonResponse.token}?base64_encoded=true`;
+        let url = `https://judge0-ce.p.rapidapi.com/submissions/${jsonResponse.token}?base64_encoded=true`;
 
         const getSolution = await fetch(url, {
           method: "GET",
           headers: {
-            "x-rapidapi-host": "judge0-extra.p.rapidapi.com",
-            "x-rapidapi-key": "", // Get yours for free at https://rapidapi.com/hermanzdosilovic/api/judge0
+            "x-rapidapi-host": "judge0-ce.p.rapidapi.com",
+            "x-rapidapi-key": "", // Get yours for free at https://rapidapi.com/judge0-official/api/judge0-ce/
             "content-type": "application/json",
           },
         });
@@ -111,7 +111,7 @@ export default class Compiler extends Component {
       <>
         <div className="row container-fluid">
           <div className="col-6 ml-4 ">
-            <label for="solution ">
+            <label htmlFor="solution ">
               <span className="badge badge-info heading mt-2 ">
                 <i className="fas fa-code fa-fw fa-lg"></i> Code Here
               </span>
@@ -130,10 +130,10 @@ export default class Compiler extends Component {
               className="btn btn-danger ml-2 mr-2 "
               onClick={this.submit}
             >
-              <i class="fas fa-cog fa-fw"></i> Run
+              <i className="fas fa-cog fa-fw"></i> Run
             </button>
 
-            <label for="tags" className="mr-1">
+            <label htmlFor="tags" className="mr-1">
               <b className="heading">Language:</b>
             </label>
             <select
